@@ -1,20 +1,28 @@
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+import express from 'express';
+import { PORT, NODE_ENV } from './config/env.js';
+import { errorMiddleware } from './middlewares/error.middlewares.js';
+import { connectToDB } from './database/mongodb.js';
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+const app = express();
 
-var app = express();
+app.use(express.json()); // Middleware to parse JSON bodies
+app.use(express.urlencoded({ extended: false })); // Middleware to parse URL-encoded bodies
 
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(errorMiddleware);
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.get('/', (req, res) => {
+    res.send('Welcome to odoo api')
+});
 
-module.exports = app;
+(async () => {
+    try {
+        await connectToDB();
+
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT} in ${NODE_ENV} mode`);
+        });
+    }
+    catch (err) {
+        console.error(`Failed to start server: ${err.message}`);
+    }
+})();
