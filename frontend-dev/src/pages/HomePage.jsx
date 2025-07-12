@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 
 
 import {
@@ -17,6 +19,7 @@ import {
     Nav,
 } from "react-bootstrap";
 
+
 const HomePage = () => {
     const [questions, setQuestions] = useState([]);
     const [totalPages, setTotalPages] = useState(1);
@@ -27,6 +30,24 @@ const HomePage = () => {
     const [searchText, setSearchText] = useState("");      // For input field
     const [searchQuery, setSearchQuery] = useState("");    // Actual value used in URL
 
+    //
+    const [user, setUser] = useState(null);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (!token) return;
+
+        fetch("http://localhost:4500/api/auth/verify", {
+            headers: { Authorization: `Bearer ${token}` },
+        })
+            .then((res) => res.ok ? res.json() : null)
+            .then((data) => {
+                if (data?.user) setUser(data.user);
+            })
+            .catch(() => { });
+    }, []);
+    //
 
     useEffect(() => {
         let url = `http://localhost:4500/api/question?page=${page}&limit=9`;
@@ -57,9 +78,34 @@ const HomePage = () => {
                 <Container>
                     <Navbar.Brand href="#" className="fs-3">StackIt</Navbar.Brand>
                     <Nav className="ms-auto">
-                        <Button variant="outline-light me-3">Sign Up</Button>
-                        <Button variant="outline-light">Sign In</Button>
+                        {user ? (
+                            <>
+                                <Navbar.Text className="me-3">
+                                    Signed in as <strong>{user.username}</strong>
+                                </Navbar.Text>
+                                <Button
+                                    variant="outline-light"
+                                    onClick={() => {
+                                        localStorage.removeItem("token");
+                                        setUser(null);
+                                        navigate("/");
+                                    }}
+                                >
+                                    Log Out
+                                </Button>
+                            </>
+                        ) : (
+                            <>
+                                <Link to="/signup">
+                                    <Button variant="outline-light" className="me-3">Sign Up</Button>
+                                </Link>
+                                <Link to="/signin">
+                                    <Button variant="outline-light">Sign In</Button>
+                                </Link>
+                            </>
+                        )}
                     </Nav>
+
                 </Container>
             </Navbar>
 

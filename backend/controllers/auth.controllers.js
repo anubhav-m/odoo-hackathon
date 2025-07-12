@@ -14,7 +14,7 @@ export const signUp = async (req, res, next) => {
         //Check if username exists
         const existingUserName = await User.findOne({ username });
 
-        if (existingUserName){
+        if (existingUserName) {
             const error = new Error("User name not available");
             error.statusCode = 409 //Conflict
             throw error;
@@ -35,7 +35,7 @@ export const signUp = async (req, res, next) => {
         const hashedPassword = await bcrypt.hash(password, salt);
 
         //Create a new user
-        const newUser = await User.create([{username, email, password: hashedPassword }], { session });
+        const newUser = await User.create([{ username, email, password: hashedPassword }], { session });
 
         //If user creation is successful, commit the transaction
         await session.commitTransaction();
@@ -89,3 +89,29 @@ export const signIn = async (req, res, next) => {
         next(err);
     }
 }
+
+
+export const verifyToken = async (req, res, next) => {
+    try {
+        const authHeader = req.headers.authorization || "";
+        const token = authHeader.startsWith("Bearer ") ? authHeader.split(" ")[1] : null;
+
+        if (!token) {
+            return res.status(401).json({ success: false, message: "No token provided" });
+        }
+
+        // Verify the JWT
+        const decoded = jwt.verify(token, JWT_SECRET); // throws if invalid / expired
+
+
+        const user = await User.findById(decoded.userId).select("username email role");
+        if (!user) {
+            return res.status(401).json({ success: false, message: "User not found" });
+        }
+
+
+        return res.status(200).json({ success: true, user });
+    } catch (err) {
+        return res.status(401).json({ success: false, message: "Invalid or expired token" });
+    }
+};
