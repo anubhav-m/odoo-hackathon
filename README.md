@@ -128,3 +128,17 @@ Frontend uses a `PrivateRoute`-style redirect:
 - Markdown support
 
 ---
+## Team Members Detail
+1. Vivek Kumar
+Email: vivekkumar16777@gmail.com
+ph no: 8530518436
+2. Ankit Jangid
+Email: Ankitj2811@gmail.com
+ph no: 95888090462
+3. Ujjwal Sen
+Email: Ujjwalsen23@gmail.com
+ph no: 9461094449
+4. Anubhav Mishra
+Email: Mishra.Anubhav108@gmail.com
+ph no: 7016624726
+
