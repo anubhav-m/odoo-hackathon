@@ -5,7 +5,6 @@ function Searchbar() {
     <div className="container mt-3">
       <div className="d-flex align-items-center gap-3 w-100">
 
-        {/* First Search Input */}
         <input
           type="search"
           className="form-control form-control-dark text-bg-dark"
@@ -13,8 +12,6 @@ function Searchbar() {
           aria-label="Search"
           style={{ maxWidth: "20%" }}
         />
-
-        {/* Second Input Group with More dropdown */}
         <div className="input-group" style={{ maxWidth: "40%" }}>
           <input
             type="search"
@@ -36,8 +33,6 @@ function Searchbar() {
             <li><a className="dropdown-item" href="#">Something else</a></li>
           </ul>
         </div>
-
-        {/* Third Input */}
         <input
           type="search"
           className="form-control form-control-dark text-bg-dark"
@@ -45,8 +40,6 @@ function Searchbar() {
           aria-label="Search"
           style={{ maxWidth: "40%" }}
         />
-
-        {/* Search Button */}
         <button className="btn btn-primary">Search</button>
       </div>
     </div>

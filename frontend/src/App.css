@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #212529; 
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.page-wrapper {
+  min-height: 100vh;            
+  display: flex;
+  flex-direction: column;
+  background-color: #212529;
+  color: white;
+}
+
+.main-content {
+  flex: 1;                        
+  padding: 20px;
+}
+
+.navbar {
+  padding: 10px 20px;
+  border-bottom: 1px solid #444;
+}
+
+.searchbar {
+  padding: 15px 20px;
+}
+.pagetoggle {
+  padding: 20px 0;
+  text-align: center;
+  background-color: inherit;
+  border-top: 1px solid #333;
+}
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Comic Neue', cursive;
+}
+.page-btn,
+.arrow {
+  background: transparent;
+  color: white;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.page-btn.active {
+  color: #87ceeb; 
+  border-bottom: 2px solid #87ceeb;
+}
+.page-btn:hover,
+.arrow:hover {
+  color: #87ceeb;
+}
+.arrow:disabled {
+  color: #555;
+  cursor: not-allowed;
+}
+body{
+  width:100%;
+  display:flex;
+  justify-content:center;
+}
+.page-wrapper{
+  width:90%;
+}
+#root{
+  display:flex;
+  justify-content:center;
+}
+.Header{
+  font-size:40px;
+  font-family: 'Times New Roman', Times, serif; 
+  font-weight: 600;
+}
