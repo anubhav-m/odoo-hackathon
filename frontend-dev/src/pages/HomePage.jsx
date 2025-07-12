@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 
 
+
+
 import {
     Container,
     Row,
@@ -30,7 +32,9 @@ const HomePage = () => {
     const [searchText, setSearchText] = useState("");      // For input field
     const [searchQuery, setSearchQuery] = useState("");    // Actual value used in URL
 
+
     //
+
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
@@ -114,7 +118,16 @@ const HomePage = () => {
                 {/* Filter + Search Row */}
                 <Row className="align-items-center mb-4">
                     <Col md="auto">
-                        <Button variant="primary">Ask New Question</Button>
+                        <Button
+                            variant="primary"
+                            onClick={() => {
+                                const token = localStorage.getItem("token");
+                                if (!token) navigate("/signup");
+                                else navigate("/ask");
+                            }}
+                        >
+                            Ask New Question
+                        </Button>
                     </Col>
 
                     <Col>

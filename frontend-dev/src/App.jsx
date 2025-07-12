@@ -3,6 +3,7 @@ import HomePage from './pages/HomePage';
 import QuestionDetail from './pages/QuestionDetail';
 import SignUp from './pages/SignUp';
 import SignIn from './pages/SignIn';
+import AskQuestion from "./pages/AskQuestion";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/question/:id" element={<QuestionDetail />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/ask" element={<AskQuestion />} />
       </Routes>
     </Router>
   );
