@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css"; // optional custom styles
+import "../App.css";
 
 function Register() {
   return (
@@ -8,7 +8,6 @@ function Register() {
         <h2 className="text-center mb-4">Register</h2>
 
         <form>
-          {/* Full Name */}
           <div className="mb-3">
             <label htmlFor="name" className="form-label">Full Name</label>
             <input
@@ -19,8 +18,6 @@ function Register() {
               required
             />
           </div>
-
-          {/* Email */}
           <div className="mb-3">
             <label htmlFor="email" className="form-label">Email address</label>
             <input
@@ -31,8 +28,6 @@ function Register() {
               required
             />
           </div>
-
-          {/* Password */}
           <div className="mb-3">
             <label htmlFor="password" className="form-label">Password</label>
             <input
@@ -43,8 +38,6 @@ function Register() {
               required
             />
           </div>
-
-          {/* Confirm Password */}
           <div className="mb-4">
             <label htmlFor="confirmPassword" className="form-label">Confirm Password</label>
             <input
@@ -55,8 +48,6 @@ function Register() {
               required
             />
           </div>
-
-          {/* Register Button */}
           <button type="submit" className="btn btn-primary w-100">
             Create Account
           </button>

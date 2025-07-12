@@ -201,3 +201,245 @@ input::placeholder {
   font-size: 14px;
   color: #aaa;
 }
+.ask-container {
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #0d0d0d;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  padding: 30px;
+  color: white;
+  font-family: 'Comic Neue', cursive;
+}
+
+.ask-header h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: cyan;
+}
+
+.ask-form label {
+  font-weight: bold;
+  margin: 10px 0 5px;
+  display: block;
+  color: white;
+}
+
+.ask-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  background-color: #2a2a2a;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}
+
+.ask-input::placeholder {
+  color: #aaa;
+}
+
+.ask-editor {
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.ask-button {
+  width: 100%;
+  background-color: cyan;
+  color: black;
+  font-weight: bold;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.ask-button:hover {
+  background-color: #00ffffcc;
+}
+/*navbar
+/* Navbar styles */
+.navbar-container {
+  width:100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  padding: 10px 40px;
+  color: aqua;
+  font-size: 24px;
+}
+
+.navbar-logo {
+  font-weight: bold;
+  font-family: 'Gagalin', cursive;
+}
+
+.navbar-right .nav-icon {
+  margin-left: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Ask Page */
+.ask-page {
+  background-color: black;
+  color: white;
+  width: 100%;
+  padding: 20px;
+}
+#root{
+  width:800px;
+}
+.form-wrapper {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px;
+  border: 2px solid white;
+  border-radius: 12px;
+  background-color: #111;
+}
+
+.ask-title {
+  text-align: center;
+  color: aqua;
+  font-family: 'Gagalin', cursive;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.ask-form label {
+  font-weight: bold;
+  margin-top: 15px;
+  display: block;
+}
+
+.ask-input,
+.ask-textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 5px;
+  background-color: #333;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.ask-button {
+  background-color: cyan;
+  color: black;
+  font-weight: bold;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.ask-button:hover {
+  background-color: #00e0e0;
+}
+/*screen3 */
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Comic Neue', cursive;
+  height:120%;
+  overflow-y: auto;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #111;
+  color: cyan;
+  border-bottom: 1px solid #444;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Container */
+.question-container {
+  max-width: 900px;
+  margin: auto;
+  background-color: #111;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 30px;
+}
+
+/* Typography */
+.question-title {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: cyan;
+}
+
+.breadcrumb {
+  font-size: 0.9rem;
+  color: lightgray;
+}
+
+.question-description {
+  margin-bottom: 20px;
+}
+
+/* Tags */
+.tag {
+  background-color: #333;
+  border: 1px solid #aaa;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+}
+
+/* Answer */
+.answer-heading {
+  margin-top: 30px;
+  font-size: 1.2rem;
+  color: lightblue;
+}
+
+.answer {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #222;
+  border-radius: 10px;
+}
+
+/* Submit Button */
+.ask-button {
+  background-color: cyan;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 16px;
+  transition: 0.3s;
+}
+
+.ask-button:hover {
+  background-color: #00e6e6;
+}
+
+/* Comment Input */
+.comment-input {
+  flex: 1;
+  background-color: #222;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.comment-input::placeholder {
+  color: gray;
+}
