@@ -4,6 +4,7 @@ import { errorMiddleware } from './middlewares/error.middlewares.js';
 import { connectToDB } from './database/mongodb.js';
 import { authRouter } from './routes/auth.routes.js';
 import { questionRouter } from './routes/question.routes.js';
+import { answerRouter } from './routes/answer.routes.js';
 
 const app = express();
 
@@ -11,7 +12,8 @@ app.use(express.json()); // Middleware to parse JSON bodies
 app.use(express.urlencoded({ extended: false })); // Middleware to parse URL-encoded bodies
 
 app.use('/api/auth', authRouter);
-app.use('/api/questions', questionRouter);
+app.use('/api/question', questionRouter);
+app.use('/api/answer', answerRouter);
 
 app.use(errorMiddleware);
 
