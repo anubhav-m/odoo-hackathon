@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 
 
 import {
@@ -56,7 +57,8 @@ const HomePage = () => {
                 <Container>
                     <Navbar.Brand href="#" className="fs-3">StackIt</Navbar.Brand>
                     <Nav className="ms-auto">
-                        <Button variant="outline-light">Login</Button>
+                        <Button variant="outline-light me-3">Sign Up</Button>
+                        <Button variant="outline-light">Sign In</Button>
                     </Nav>
                 </Container>
             </Navbar>
@@ -97,7 +99,11 @@ const HomePage = () => {
                                 <Col md={12}>
                                     <Card bg="secondary" text="light" className="h-100 p-3" style={{ minHeight: "180px" }}>
                                         <Card.Body>
-                                            <Card.Title>{q.title}</Card.Title>
+                                            <Card.Title>
+                                                <Link to={`/question/${q._id}`} className="text-light text-decoration-none">
+                                                    {q.title}
+                                                </Link>
+                                            </Card.Title>
                                             <Card.Text style={{ whiteSpace: "pre-line" }}>{q.description}</Card.Text>
                                             <div className="mb-2">
                                                 {q.tags?.map((tag, i) => (
