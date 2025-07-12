@@ -75,13 +75,25 @@ export const getQuestions = async (req, res, next) => {
         const limit = Math.max(parseInt(req.query.limit) || 10, 1);
         const skip = (page - 1) * limit;
 
+        const filter = {};
+
+        // 🔍 If search term exists, filter by title or description (case-insensitive)
+        if (req.query.search) {
+            const searchRegex = new RegExp(req.query.search, 'i');
+            filter.$or = [
+                { title: searchRegex },
+                { description: searchRegex }
+            ];
+        }
+
+        // Use filter in both queries
         const [questions, total] = await Promise.all([
-            Question.find({})
-                .sort({ createdAt: -1 })             // newest first
+            Question.find(filter)
+                .sort({ createdAt: -1 })
                 .skip(skip)
                 .limit(limit)
-                .populate('author', 'username'),     // only username
-            Question.countDocuments({})
+                .populate('author', 'username'),
+            Question.countDocuments(filter)
         ]);
 
         res.status(200).json({
@@ -95,6 +107,7 @@ export const getQuestions = async (req, res, next) => {
         next(err);
     }
 };
+
 
 
 export const getQuestionById = async (req, res, next) => {
